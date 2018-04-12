@@ -19,7 +19,7 @@ dice = Math.floor(Math.random() * 6) + 1; //geerate random number from 1-6
 
 //document.querySelector("#current-" + activePlayer ).innerHTML= "<em>" + dice + "</em>"; //innerHTML will put html to selected elenent 
 (function() {
- document.querySelector(".dice").style.visibility = "hidden";
+ document.querySelector(".dice").style.display = "none";
 	activePlayer = 0;
 })();
  //manipulate the CSS
@@ -28,6 +28,9 @@ document.querySelector(".btn-roll").onclick = function () {
 	
 	dice = Math.floor(Math.random() * 6) + 1;
 	console.log("current active player  "+ activePlayer + " dice value " + dice );
+	var diceDOM=document.querySelector(".dice");
+	diceDOM.style.display = 'block'; //unhide the dice
+	diceDOM.src ='dice-'+ dice + '.png';
 	if(dice===1){
 		scores[activePlayer]=0;
 		document.querySelector("#current-" + activePlayer).textContent = 0;
@@ -57,6 +60,7 @@ document.querySelector(".btn-roll").onclick = function () {
 }
 document.querySelector(".btn-new").onclick = function () {
 	//dice = Math.floor(Math.random() * 6) + 1;
+	document.querySelector(".dice").style.display = "none";
 	document.querySelector("#current-0").textContent = 0;
 	document.querySelector("#current-1").textContent = 0;
 	document.querySelector("#score-0").textContent = 0;
